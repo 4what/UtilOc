@@ -1,5 +1,7 @@
 # UtilOc
 
+Objective-C Util
+
 ## Requirements
 
 iOS 8.0+
@@ -8,7 +10,9 @@ iOS 8.0+
 
 ### CocoaPods
 
+```ruby
 pod 'UtilOc'
+```
 
 ## Author
 
@@ -16,4 +20,4 @@ http://www.4what.cn/
 
 ## License
 
-UtilOc is available under the MIT license. See the LICENSE file for more info.
+UtilOc is available under the MIT license. See the [LICENSE](https://github.com/4what/UtilOc/blob/master/LICENSE) file for more info.
