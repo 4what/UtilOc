@@ -6,7 +6,7 @@
 
 @protocol OCLoadMoreDelegate <NSObject>
 
-- (void)request:(void (^)())success failure:(void (^)())failure;
+- (void)request:(void (^)(void))success failure:(void (^)(void))failure;
 
 @end
 
