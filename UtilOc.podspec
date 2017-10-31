@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage            = 'http://www.4what.cn/'
   s.license             = { :type => 'MIT', :file => 'LICENSE' }
   s.author              = { '4what' => 'root@4what.cn' }
-  s.source              = { :git => 'https://github.com/4what/UtilOc.git', :tag => s.version.to_s }
+  s.source              = { :git => 'https://github.com/4what/UtilOc.git', :tag => '1.0.1' }
   
   s.platform            = :ios, '8.0'
   
