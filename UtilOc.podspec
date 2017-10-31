@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = 'UtilOc'
-  s.version             = '1.1'
+  s.version             = '2017'
   s.summary             = 'Objective-C Util'
   s.homepage            = 'http://www.4what.cn/'
   s.license             = { :type => 'MIT', :file => 'LICENSE' }
