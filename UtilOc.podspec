@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name                = 'UtilOc'
-  s.version             = '1.0.1'
+  s.version             = '1.1'
   s.summary             = 'Objective-C Util'
   s.homepage            = 'http://www.4what.cn/'
   s.license             = { :type => 'MIT', :file => 'LICENSE' }
   s.author              = { '4what' => 'root@4what.cn' }
-  s.source              = { :git => 'https://github.com/4what/UtilOc.git', :tag => '1.0.1' }
+  s.source              = { :git => 'https://github.com/4what/UtilOc.git', :tag => s.version.to_s }
   
   s.platform            = :ios, '8.0'
   
