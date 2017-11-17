@@ -11,6 +11,8 @@
 }
 
 static NSString *footerId = @"footer";
+
+static CGFloat padding = 16;
 static CGFloat scale = 0.8;
 
 - (void)load {
@@ -94,10 +96,10 @@ static CGFloat scale = 0.8;
 
 #pragma mark
 
-- (instancetype)initWithData:(NSMutableArray *)data view:(UIScrollView *)view {
+- (instancetype)initWithScrollView:(UIScrollView *)scrollView data:(NSMutableArray *)data {
 	self = [super init];
 	if (self) {
-		_view = view;
+		_view = scrollView;
 
 		_data = data;
 
@@ -105,7 +107,7 @@ static CGFloat scale = 0.8;
 		_loading.translatesAutoresizingMaskIntoConstraints = NO;
 
 		if ([_view isKindOfClass:[UITableView class]]) {
-			((UITableView *) _view).tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 8 + CGRectGetHeight(_loading.bounds) + 8)];
+			((UITableView *) _view).tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, padding + CGRectGetHeight(_loading.bounds) + padding)];
 			[((UITableView *) _view).tableFooterView addSubview:_loading];
 
 			[(UITableView *) _view addConstraint:[NSLayoutConstraint constraintWithItem:_loading attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:((UITableView *) _view).tableFooterView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
@@ -115,7 +117,7 @@ static CGFloat scale = 0.8;
 		} else if ([_view isKindOfClass:[UICollectionView class]]) {
 			[(UICollectionView *) _view registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:footerId];
 
-			_footerHeight = 8 + CGRectGetHeight(_loading.bounds) + 8;
+			_footerHeight = padding + CGRectGetHeight(_loading.bounds) + padding;
 			((UICollectionViewFlowLayout *) ((UICollectionView *) _view).collectionViewLayout).footerReferenceSize = CGSizeMake(0, _footerHeight);
 		}
 	}

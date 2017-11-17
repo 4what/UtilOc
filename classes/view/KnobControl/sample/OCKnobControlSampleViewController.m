@@ -2,11 +2,11 @@
 //  @author 4what
 //
 
-#import "OCKnobControlViewController.h"
+#import "OCKnobControlSampleViewController.h"
 
 #import "OCKnobControl.h"
 
-@implementation OCKnobControlViewController {
+@implementation OCKnobControlSampleViewController {
 	OCKnobControl *_knobControl;
 
 	UISwitch *_animateSwitch;

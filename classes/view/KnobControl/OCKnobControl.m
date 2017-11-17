@@ -198,6 +198,16 @@
 
 #pragma mark
 
++ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key {
+	if ([key isEqualToString:@"value"]) {
+		return NO;
+	} else {
+		return [super automaticallyNotifiesObserversForKey:key];
+	}
+}
+
+#pragma mark
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	[super touchesBegan:touches withEvent:event];
 
@@ -212,13 +222,12 @@
 
 #pragma mark
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key {
-	if ([key isEqualToString:@"value"]) {
-		return NO;
-	} else {
-		return [super automaticallyNotifiesObserversForKey:key];
-	}
+/*
+- (void)tintColorDidChange {
+	self.trackColor = self.tintColor;
+	self.thumbColor = self.tintColor;
 }
+*/
 
 #pragma mark
 
@@ -233,7 +242,6 @@
 - (instancetype)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self) {
-		// init
 		_trackLayer = [CAShapeLayer layer];
 		[self.layer addSublayer:_trackLayer];
 
@@ -287,12 +295,5 @@
 	}
 	return self;
 }
-
-/*
-- (void)tintColorDidChange {
-	self.trackColor = self.tintColor;
-	self.thumbColor = self.tintColor;
-}
-*/
 
 @end

@@ -23,6 +23,6 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
 
-- (instancetype)initWithData:(NSMutableArray *)data view:(UIScrollView *)view;
+- (instancetype)initWithScrollView:(UIScrollView *)scrollView data:(NSMutableArray *)data;
 
 @end
