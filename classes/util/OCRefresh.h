@@ -16,13 +16,14 @@
 @property (nonatomic, weak) id <OCRefreshDelegate> delegate;
 
 @property (nonatomic) CGFloat diameter;
+@property (nonatomic) CGFloat lineWidth;
 
 @property (nonatomic) UIColor *trackColor;
 @property (nonatomic) UIColor *pointerColor;
 
 @property (nonatomic, readonly) BOOL running;
 
-- (void)complete;
+- (void)stop;
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView;

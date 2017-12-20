@@ -17,7 +17,7 @@ static void *OCRefreshObserverContext = &OCRefreshObserverContext;
 
 static CGFloat padding = 16;
 
-- (void)complete {
+- (void)stop {
 	if (_running) {
 		[UIView animateWithDuration:0.4 animations:^{
 			_scrollView.contentInset = _insets;
@@ -38,10 +38,20 @@ static CGFloat padding = 16;
 	if (diameter != _diameter) {
 		_diameter = diameter;
 
-		_trackLayer.bounds = _pointerLayer.bounds = CGRectMake(0, 0, _diameter, _diameter);
-		_trackLayer.path = _pointerLayer.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, _diameter, _diameter)].CGPath;
+		_trackLayer.bounds = _pointerLayer.bounds = CGRectMake(0, 0, diameter, diameter);
+		_trackLayer.path = _pointerLayer.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, diameter, diameter)].CGPath;
 	}
 }
+
+- (void)setLineWidth:(CGFloat)lineWidth {
+	if (lineWidth != _lineWidth) {
+		_lineWidth = lineWidth;
+
+		_trackLayer.lineWidth = lineWidth;
+		_pointerLayer.lineWidth = lineWidth + 0.8;
+	}
+}
+
 
 - (void)setPointerColor:(UIColor *)pointerColor {
 	if (pointerColor != _pointerColor) {
@@ -114,7 +124,6 @@ static CGFloat padding = 16;
 
 		_trackLayer.affineTransform = CGAffineTransformRotate(_trackLayer.affineTransform, -(M_PI / 2.f));
 		_trackLayer.fillColor = [UIColor clearColor].CGColor;
-		_trackLayer.lineWidth = 1;
 		_trackLayer.strokeEnd = 0;
 
 		_pointerLayer = [CAShapeLayer layer];
@@ -125,11 +134,11 @@ static CGFloat padding = 16;
 		_pointerLayer.affineTransform = _trackLayer.affineTransform;
 		_pointerLayer.fillColor = [UIColor clearColor].CGColor;
 		_pointerLayer.lineCap = kCALineCapRound;
-		_pointerLayer.lineWidth = _trackLayer.lineWidth + 0.8;
 		_pointerLayer.strokeEnd = 0.1;
 
 		// defaults
 		self.diameter = 24;
+		self.lineWidth = 1;
 
 		self.trackColor = [UIColor lightGrayColor];
 		self.pointerColor = [UIColor whiteColor];
