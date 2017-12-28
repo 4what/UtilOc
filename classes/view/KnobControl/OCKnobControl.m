@@ -196,17 +196,24 @@
 	}
 }
 
-#pragma mark
+#pragma mark - UIControl
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key {
-	if ([key isEqualToString:@"value"]) {
-		return NO;
-	} else {
-		return [super automaticallyNotifiesObserversForKey:key];
-	}
+- (void)setEnabled:(BOOL)enabled {
+	[super setEnabled:enabled];
+
+	self.alpha = enabled ? 1 : 0.2;
 }
 
-#pragma mark
+#pragma mark - UIView
+
+/*
+- (void)tintColorDidChange {
+	self.trackColor = self.tintColor;
+	self.thumbColor = self.tintColor;
+}
+*/
+
+#pragma mark - UIResponder
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	[super touchesBegan:touches withEvent:event];
@@ -220,21 +227,14 @@
 	[self updateTouchAngleWithTouches:touches];
 }
 
-#pragma mark
+#pragma mark - NSKeyValueObserving
 
-/*
-- (void)tintColorDidChange {
-	self.trackColor = self.tintColor;
-	self.thumbColor = self.tintColor;
-}
-*/
-
-#pragma mark
-
-- (void)setEnabled:(BOOL)enabled {
-	[super setEnabled:enabled];
-
-	self.alpha = enabled ? 1 : 0.2;
++ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key {
+	if ([key isEqualToString:@"value"]) {
+		return NO;
+	} else {
+		return [super automaticallyNotifiesObserversForKey:key];
+	}
 }
 
 #pragma mark

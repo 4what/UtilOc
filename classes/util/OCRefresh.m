@@ -69,18 +69,6 @@ static CGFloat padding = 16;
 	}
 }
 
-#pragma mark - KVO
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	if (context == OCRefreshObserverContext) {
-		if ([keyPath isEqualToString:NSStringFromSelector(@selector(bounds))]) {
-			_trackLayer.position = _pointerLayer.position = CGPointMake(_scrollView.center.x, -(padding + self.diameter / 2.f));
-		}
-	} else {
-		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-	}
-}
-
 #pragma mark <UIScrollViewDelegate>
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
@@ -107,6 +95,18 @@ static CGFloat padding = 16;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 	if (!_running) {
 		_trackLayer.strokeEnd = (-scrollView.contentOffset.y - (padding + self.diameter)) / self.diameter;
+	}
+}
+
+#pragma mark - NSKeyValueObserving
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	if (context == OCRefreshObserverContext) {
+		if ([keyPath isEqualToString:NSStringFromSelector(@selector(bounds))]) {
+			_trackLayer.position = _pointerLayer.position = CGPointMake(_scrollView.center.x, -(padding + self.diameter / 2.f));
+		}
+	} else {
+		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 	}
 }
 
