@@ -7,7 +7,7 @@
 @implementation OCGridView
 
 - (void)gotoItem:(UIScrollView *)scrollView {
-	CGFloat width = CGRectGetWidth(scrollView.bounds) / _numberOfItemsInRow;
+	CGFloat width = (CGRectGetWidth(scrollView.bounds) - _offset) / _numberOfItemsInRow;
 	CGFloat current = floor((scrollView.contentOffset.x - width / 2.f) / width) + 1;
 	CGRect rect = scrollView.bounds;
 	rect.origin.x = width * current;
@@ -51,7 +51,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-	CGFloat width = CGRectGetWidth(collectionView.bounds) / _numberOfItemsInRow;
+	CGFloat width = (CGRectGetWidth(collectionView.bounds) - _offset) / _numberOfItemsInRow;
 	return CGSizeMake(width, _itemHeight ? _itemHeight : (width + _delta));
 }
 

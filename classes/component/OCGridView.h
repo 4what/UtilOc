@@ -11,6 +11,8 @@
 @property (nonatomic, readonly) CGFloat numberOfItemsInRow;
 @property (nonatomic, readonly) CGFloat rows;
 
+@property (nonatomic) CGFloat offset;
+
 @property (nonatomic) CGFloat delta;
 @property (nonatomic) CGFloat itemHeight;
 

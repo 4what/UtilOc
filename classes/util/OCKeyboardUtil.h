@@ -1,6 +1,8 @@
 //
 //  @author 4what
 //
+//  TODO: iOS11+
+//
 
 #import <UIKit/UIKit.h>
 
