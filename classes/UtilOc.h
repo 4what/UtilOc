@@ -1,6 +1,6 @@
 //
 //  @author 4what
-//  @version 1.1.3 Build 2020.12.16
+//  @version 1.2.0 Build 2021.02.06
 //
 
 #import <UIKit/UIKit.h>

@@ -4,7 +4,7 @@ Objective-C Util
 
 ## Requirements
 
-iOS 8.0+
+iOS 9.0+
 
 ## Installation
 
@@ -20,4 +20,4 @@ http://www.4what.cn/
 
 ## License
 
-UtilOc is available under the MIT license. See the [LICENSE](http://www.github.com/4what/UtilOc/blob/master/LICENSE) file for more info.
+UtilOc is available under the MIT license. See the [LICENSE](https://github.com/4what/UtilOc/blob/master/LICENSE) file for more info.
