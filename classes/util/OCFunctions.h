@@ -2,10 +2,11 @@
 //  @author 4what
 //
 
-//#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 @interface OCFunctions : NSObject
+
+#pragma mark
 
 + (NSString *)deviceType;
 
@@ -20,6 +21,11 @@
 #pragma mark
 
 + (NSURL *)URLForDirectory:(NSSearchPathDirectory)directory path:(NSString *)path;
+
+#pragma mark
+
++ (UIViewController *)topViewController:(UIViewController *)viewController;
++ (UIViewController *)visibleViewController:(UIViewController *)viewController;
 
 #pragma mark
 

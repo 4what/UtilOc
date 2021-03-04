@@ -48,6 +48,34 @@
 
 #pragma mark
 
++ (UIViewController *)topViewController:(UIViewController *)viewController {
+	UIViewController *vc = viewController;
+	if ([viewController isKindOfClass:[UINavigationController class]]) {
+		vc = ((UINavigationController *) viewController).topViewController;
+	} else if ([viewController isKindOfClass:[UITabBarController class]]) {
+		vc = ((UITabBarController *) viewController).selectedViewController;
+		if ([vc isKindOfClass:[UINavigationController class]]) {
+			vc = ((UINavigationController *) vc).topViewController;
+		}
+	}
+	return vc;
+}
+
++ (UIViewController *)visibleViewController:(UIViewController *)viewController {
+	UIViewController *vc = viewController;
+	if ([viewController isKindOfClass:[UINavigationController class]]) {
+		vc = ((UINavigationController *) viewController).visibleViewController;
+	} else if ([viewController isKindOfClass:[UITabBarController class]]) {
+		vc = ((UITabBarController *) viewController).selectedViewController;
+		if ([vc isKindOfClass:[UINavigationController class]]) {
+			vc = ((UINavigationController *) vc).visibleViewController;
+		}
+	}
+	return vc;
+}
+
+#pragma mark
+
 + (NSString *)defaultString:(NSString *)str {
 	return !str ? @"" : str;
 }
