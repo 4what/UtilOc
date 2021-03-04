@@ -19,16 +19,18 @@ static CGFloat padding = 16;
 
 - (void)stop {
 	if (_running) {
-		[UIView animateWithDuration:0.4 animations:^{
-			_scrollView.contentInset = _insets;
-		} completion:^(BOOL finished) {
-			_trackLayer.strokeEnd = 0;
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 1), dispatch_get_main_queue(), ^{
+			[UIView animateWithDuration:0.4 animations:^{
+				_scrollView.contentInset = _insets;
+			} completion:^(BOOL finished) {
+				_trackLayer.strokeEnd = 0;
 
-			_pointerLayer.hidden = YES;
-			[_pointerLayer removeAllAnimations];
+				_pointerLayer.hidden = YES;
+				[_pointerLayer removeAllAnimations];
 
-			_running = NO;
-		}];
+				_running = NO;
+			}];
+		});
 	}
 }
 
