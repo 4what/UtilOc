@@ -103,7 +103,7 @@ static CGFloat padding = 16;
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	if (context == OCRefreshObserverContext) {
 		if ([keyPath isEqualToString:NSStringFromSelector(@selector(bounds))]) {
-			_trackLayer.position = _pointerLayer.position = CGPointMake(_scrollView.center.x, -(padding + self.diameter / 2.f));
+			_trackLayer.position = _pointerLayer.position = CGPointMake(CGRectGetWidth(_scrollView.bounds) / 2.f, -(padding + self.diameter / 2.f));
 		}
 	} else {
 		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
