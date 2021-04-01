@@ -1,13 +1,9 @@
-//
-//  @author 4what
-//
-
-#import "OCFunctions.h"
+#import "OCUtilities.h"
 
 #import <CommonCrypto/CommonDigest.h>
 #import <sys/utsname.h>
 
-@implementation OCFunctions : NSObject
+@implementation OCUtilities : NSObject
 
 + (NSString *)deviceType {
 	struct utsname systemName;

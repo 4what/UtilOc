@@ -1,7 +1,3 @@
-//
-//  @author 4what
-//
-
 #import "OCSlideView.h"
 
 #import "OCSlideViewCell.h"

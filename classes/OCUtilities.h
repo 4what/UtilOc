@@ -1,10 +1,10 @@
 //
-//  @author 4what
+// @author 4what
 //
 
 #import <UIKit/UIKit.h>
 
-@interface OCFunctions : NSObject
+@interface OCUtilities : NSObject
 
 #pragma mark
 

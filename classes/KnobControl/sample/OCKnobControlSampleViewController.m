@@ -1,7 +1,3 @@
-//
-//  @author 4what
-//
-
 #import "OCKnobControlSampleViewController.h"
 
 #import "OCKnobControl.h"

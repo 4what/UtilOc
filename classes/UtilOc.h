@@ -1,6 +1,6 @@
 //
-//  @author 4what
-//  @version 1.2.3 Build 2021.03.04
+// @author 4what
+// @version 1.3.0 Build 2021.04.01
 //
 
 #import <UIKit/UIKit.h>
@@ -12,8 +12,6 @@ FOUNDATION_EXPORT double UtilOcVersionNumber;
 FOUNDATION_EXPORT const unsigned char UtilOcVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <UtilOc/PublicHeader.h>
-
-#import <UtilOc/OCFunctions.h>
 
 #import <UtilOc/OCGridView.h>
 
@@ -33,3 +31,5 @@ FOUNDATION_EXPORT const unsigned char UtilOcVersionString[];
 #import <UtilOc/OCSlideViewCell.h>
 
 #import <UtilOc/OCSlideView2.h>
+
+#import <UtilOc/OCUtilities.h>

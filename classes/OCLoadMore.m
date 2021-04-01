@@ -1,7 +1,3 @@
-//
-//  @author 4what
-//
-
 #import "OCLoadMore.h"
 
 @implementation OCLoadMore {

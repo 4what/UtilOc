@@ -1,18 +1,8 @@
-//
-//  @author 4what
-//
+#import "OCListView.h"
 
-#import "OCGridView.h"
-
-@implementation OCGridView
-
-- (void)gotoItem:(UIScrollView *)scrollView {
-	CGFloat width = (CGRectGetWidth(scrollView.bounds) - _offset) / _numberOfItemsInRow;
-	CGFloat current = floor((scrollView.contentOffset.x - width / 2.f) / width) + 1;
-	CGRect rect = scrollView.bounds;
-	rect.origin.x = width * current;
-	rect.origin.y = 0;
-	[scrollView scrollRectToVisible:rect animated:YES];
+@implementation OCListView {
+	CGFloat _columns;
+	CGFloat _numberOfItemsInColumn;
 }
 
 #pragma mark - getter & setter
@@ -51,8 +41,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-	CGFloat width = (CGRectGetWidth(collectionView.bounds) - _offset) / _numberOfItemsInRow;
-	return CGSizeMake(width, _itemHeight ? _itemHeight : (width + _delta));
+	return CGSizeMake(CGRectGetWidth(collectionView.bounds) / _columns, CGRectGetHeight(collectionView.bounds) / _numberOfItemsInColumn);
 }
 
 /*
@@ -61,52 +50,31 @@
 }
 */
 
-#pragma mark <UIScrollViewDelegate>
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-	[self gotoItem:scrollView];
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-	if (!decelerate) {
-		[self gotoItem:scrollView];
-	}
-}
-
 #pragma mark
 
-- (instancetype)initWithItems:(NSArray *)items numberOfItemsInRow:(CGFloat)numberOfItemsInRow rows:(CGFloat)rows viewController:(UIViewController *)viewController {
+- (instancetype)initWithItems:(NSArray *)items columns:(CGFloat)columns numberOfItemsInColumn:(CGFloat)numberOfItemsInColumn viewController:(UIViewController *)viewController {
 	UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-	if (rows == 1) {
-		layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-	}
+	layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
 
 	self = [super initWithFrame:CGRectZero collectionViewLayout:layout];
 	if (self) {
 		self.data = [items mutableCopy];
 
-		_numberOfItemsInRow = numberOfItemsInRow;
-
-		if (rows == 0) {
-			rows = ceil(self.data.count / numberOfItemsInRow);
-		}
-		_rows = rows;
+		_columns = columns;
+		_numberOfItemsInColumn = numberOfItemsInColumn;
 
 		_viewController = viewController;
 
 		self.dataSource = self;
 		self.delegate = self;
 
-		self.backgroundColor = nil;
+		self.backgroundColor = [UIColor whiteColor];
+		self.pagingEnabled = YES;
 		self.showsHorizontalScrollIndicator = NO;
 		self.showsVerticalScrollIndicator = NO;
 
 		self.translatesAutoresizingMaskIntoConstraints = NO;
-		if (_itemHeight) {
-			[self addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:_itemHeight * rows]];
-		} else {
-			[self addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeWidth multiplier:1 / numberOfItemsInRow * rows constant:_delta * rows]];
-		}
+		[self addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:_itemHeight * numberOfItemsInColumn]];
 	}
 	return self;
 }
