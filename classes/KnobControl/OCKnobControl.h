@@ -1,8 +1,8 @@
 //
 // @author 4what
 //
-// http://www.raywenderlich.com/56885/custom-control-for-ios-tutorial-a-reusable-knob
-// http://www.cocoachina.com/ios/20150122/10996.html
+// http://raywenderlich.com/56885/custom-control-for-ios-tutorial-a-reusable-knob
+// http://cocoachina.com/ios/20150122/10996.html
 //
 
 
