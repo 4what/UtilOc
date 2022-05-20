@@ -12,7 +12,7 @@
 		_data = [NSMutableArray array];
 	}
 	return _data;
-};
+}
 
 #pragma mark <UICollectionViewDataSource>
 

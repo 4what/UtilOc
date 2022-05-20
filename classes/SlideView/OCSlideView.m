@@ -27,7 +27,7 @@
 
 - (void)reload {
 	_pageControl.numberOfPages = self.data.count;
-	
+
 	[_collectionView reloadData];
 }
 
@@ -56,7 +56,7 @@
 		_data = [NSMutableArray array];
 	}
 	return _data;
-};
+}
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -120,7 +120,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
 	CGFloat width = CGRectGetWidth(scrollView.bounds);
 	NSInteger page = floor((scrollView.contentOffset.x - width / 2.f) / width) + 1;
-	
+
 	if (_loop) {
 		if (page == 0) {
 			_pageControl.currentPage = _pageControl.numberOfPages - 1;
