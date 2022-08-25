@@ -1,6 +1,4 @@
 //
-// @author 4what
-//
 // TODO: iOS11+
 //
 

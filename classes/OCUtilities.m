@@ -78,11 +78,11 @@
 
 + (BOOL)isEmpty:(NSString *)str {
 	NSInteger length = str.length;
-/*
+	/*
 	if (!str || length == 0) {
 		return true;
 	}
-*/
+	*/
 	for (int i = 0; i < length; i++) {
 		if (![[NSCharacterSet whitespaceAndNewlineCharacterSet] characterIsMember:[str characterAtIndex:i]]) {
 			return false;

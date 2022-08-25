@@ -7,12 +7,12 @@
 - (void)gotoItem:(NSInteger)index animated:(BOOL)animated {
 	//[_collectionView setContentOffset:CGPointMake(CGRectGetWidth(_collectionView.bounds) * index, 0) animated:animated];
 
-/*
+	/*
 	CGRect rect = _collectionView.bounds;
 	rect.origin.x = CGRectGetWidth(rect) * index;
 	rect.origin.y = 0;
 	[_collectionView scrollRectToVisible:rect animated:animated];
-*/
+	*/
 
 	[_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:animated];
 }
@@ -63,7 +63,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 	OCSlideViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:_cellId forIndexPath:indexPath];
 
-/*
+	/*
 	UIView *itemView = self.data[indexPath.item];
 	[cell.contentView addSubview:itemView];
 
@@ -71,7 +71,7 @@
 	for (NSString *item in @[@"|[itemView]|", @"V:|[itemView]|"]) {
 		[cell addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:item options:0 metrics:nil views:NSDictionaryOfVariableBindings(itemView)]];
 	}
-*/
+	*/
 
 	return cell;
 }

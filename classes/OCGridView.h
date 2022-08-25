@@ -1,7 +1,3 @@
-//
-// @author 4what
-//
-
 #import <UIKit/UIKit.h>
 
 @interface OCGridView : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>

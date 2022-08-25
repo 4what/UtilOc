@@ -23,12 +23,12 @@ static CGFloat scale = 0.8;
 		[_delegate request:^{
 			NSInteger count = _data.count;
 			if (count > start) {
-/*
+				/*
 				NSMutableArray *items = [NSMutableArray array];
 				for (int i = start; i < count; i++) {
 					[items addObject:[NSIndexPath indexPathForRow:i inSection:0]];
 				}
-*/
+				*/
 				if ([_view isKindOfClass:[UITableView class]]) {
 					//[(UITableView *) _view insertRowsAtIndexPaths:items withRowAnimation:UITableViewRowAnimationAutomatic];
 

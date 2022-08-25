@@ -7,13 +7,13 @@
 }
 
 - (void)gotoPage:(BOOL)animated {
-/*
+	/*
 	CGRect rect = _scrollView.bounds;
 	rect.origin.x = CGRectGetWidth(rect) * _pageControl.currentPage;
 	rect.origin.y = 0;
 	[_scrollView scrollRectToVisible:rect animated:animated];
-*/
-	
+	*/
+
 	[_scrollView setContentOffset:CGPointMake(CGRectGetWidth(_scrollView.bounds) * _pageControl.currentPage, 0) animated:animated];
 }
 
