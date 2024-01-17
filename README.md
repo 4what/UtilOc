@@ -1,6 +1,6 @@
 # UtilOc
 
-Objective-C Util
+Objective-C Utilities
 
 ## Requirements
 
